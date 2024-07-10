@@ -1,4 +1,4 @@
-plotRSEA <- function(x,nrow=3,ncol=3,color.line="#00468BFF") {
+calRSEA <- function(x) {
 #load the dependent packages
 library(dplyr)
 library(gage)
@@ -27,11 +27,8 @@ for (i in 1:length(pathways)) {
 fgseaRes_l <- fgsea(pathways, rfeature_list)  
 fgseaRes_l <- fgseaRes_l[order(padj, -abs(NES)),] 
 #head(fgseaRes_l[order(padj, -abs(NES)), ], n=10) 
-#plot the enrichment outcomes
-gs <- lapply(1:length(fgseaRes_l$pathway), function(i) 
-  plotEnrichment.color(pathways[[fgseaRes_l$pathway[i]]], rfeature_list, color.line=color.line) + 
-    labs(title=fgseaRes_l$pathway[i]) +
-    theme(plot.title = element_text(size=5)))
-#grid.arrange(grobs=gs, ncol=5) #single page
-marrangeGrob(grobs=gs, nrow=nrow, ncol=ncol) #Multiple pages output
-}
+
+RSEA.result_l <- data.frame(fgseaRes_l)
+RSEA.result_l <- RSEA.result_l[,-ncol(RSEA.result_l)] #remove list
+return(RSEA.result_l)
+}#over

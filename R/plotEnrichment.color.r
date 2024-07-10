@@ -1,5 +1,5 @@
 #plotEnrichment.yu.definition, customed color for lines
-plotEnrichment.color <- function (pathway, stats, gseaParam = 1, ticksSize = 0.2, color.line="#00468BFF") 
+plotEnrichment.color <- function (pathway, stats, gseaParam = 1, ticksSize = 0.2, color.line="#00468BFF") #default parameters have been supplied
 {
     rnk <- rank(-stats)
     ord <- order(rnk)
@@ -27,6 +27,6 @@ plotEnrichment.color <- function (pathway, stats, gseaParam = 1, ticksSize = 0.2
         mapping = aes(x = x, y = -diff/2, xend = x, yend = diff/2), 
         size = ticksSize) + theme(panel.border = element_blank(), 
         panel.grid.minor = element_blank()) + labs(x = "rank", 
-        y = "enrichment score")
+        y = "enrichment score") #plot details
     g
 }
