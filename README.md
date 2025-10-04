@@ -11,4 +11,4 @@ calRO(names(rfeature_list)[1:100]) #this will save a spreadsheet(.csv) in your w
 
 RSEA.result <- calRSEA(rfeature_list) #RSEA enrichment analysis
 
-plotRSEA(rfeature_list,nrow=3,ncol=3,color.line="#00468BFF") #plot RSEA enrichment outcomes; #change 'color.line' value for line color
+plotRSEA(rfeature_list,nrow=3,ncol=3,color.line="#00468BFF") #plot RSEA enrichment outcomes; change 'color.line' value for line color
